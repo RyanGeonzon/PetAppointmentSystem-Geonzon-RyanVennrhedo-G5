@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<div class="stats"><div class="card"><b>{{ total_users }}</b>Total users</div><div class="card"><b>{{ owner_count }}</b>Pet Owners</div></div>
+<div class="card"><h3>Recent users</h3>
+<table><tr><th>Username</th><th>Email</th><th>Role</th><th>Joined</th></tr>
+{% for u in recent_users %}<tr><td>{{ u.username }}</td><td>{{ u.email }}</td><td>{{ u.get_role_display }}</td><td>{{ u.date_joined|date:"M d, Y" }}</td></tr>{% endfor %}
+</table>
+{% if user.is_superuser %}<a class="btn" href="{% url 'admin:index' %}">Manage in Django admin</a>{% endif %}</div>
+{% endblock %}

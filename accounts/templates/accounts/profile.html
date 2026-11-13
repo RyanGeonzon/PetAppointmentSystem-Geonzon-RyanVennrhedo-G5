@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}My Profile{% endblock %}
+{% block content %}
+<div class="card"><h2>My Profile</h2>
+{% if profile_user.photo %}<img class="avatar" src="{{ profile_user.photo.url }}" alt="Profile photo">{% endif %}
+<table>
+<tr><th>Username</th><td>{{ profile_user.username }}</td></tr>
+<tr><th>Name</th><td>{{ profile_user.get_full_name|default:"—" }}</td></tr>
+<tr><th>Email</th><td>{{ profile_user.email }}</td></tr>
+<tr><th>Contact number</th><td>{{ profile_user.phone|default:"—" }}</td></tr>
+<tr><th>Role</th><td>{{ profile_user.get_role_display }}</td></tr>
+</table>
+<a class="btn" href="{% url 'accounts:profile_edit' %}">Edit profile</a></div>
+{% endblock %}

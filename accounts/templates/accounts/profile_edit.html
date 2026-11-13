@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Edit Profile{% endblock %}
+{% block content %}
+<div class="card"><h2>Edit Profile</h2>
+<form method="post" enctype="multipart/form-data" novalidate>{% csrf_token %}{% include "accounts/_form.html" %}
+<button class="btn" type="submit">Save changes</button> <a href="{% url 'accounts:profile' %}">Cancel</a></form></div>
+{% endblock %}

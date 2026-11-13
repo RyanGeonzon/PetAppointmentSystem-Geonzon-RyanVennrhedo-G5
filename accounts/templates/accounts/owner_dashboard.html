@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Pet Owner Dashboard{% endblock %}
+{% block content %}
+<div class="card"><h2>Welcome, {{ user.first_name|default:user.username }}!</h2>
+<p>This is your Pet Owner dashboard. Your pets and appointments will appear here in the next phases.</p>
+<a class="btn" href="{% url 'accounts:profile' %}">View my profile</a></div>
+{% endblock %}
